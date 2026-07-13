@@ -13,8 +13,28 @@ app.use(helmet({
   contentSecurityPolicy: false, // Disable for easier local client interactions and scripts
 }));
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'https://bia.com.ng',
+  'https://www.bia.com.ng'
+];
+
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174'], // Allow business & admin dashboard local ports
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps, curl, or postman)
+    if (!origin) return callback(null, true);
+    
+    const isAllowed = allowedOrigins.includes(origin) || 
+                      origin.endsWith('.bia.com.ng') ||
+                      /^http:\/\/localhost:\d+$/.test(origin); // match any localhost port
+                      
+    if (isAllowed) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
 
