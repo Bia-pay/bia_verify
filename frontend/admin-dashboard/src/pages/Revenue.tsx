@@ -38,7 +38,7 @@ export const Revenue: React.FC = () => {
   const fetchBusinesses = async () => {
     if (!token) return;
     try {
-      const res = await fetch('http://localhost:5001/api/v1/admin/businesses', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/admin/businesses', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -54,7 +54,7 @@ export const Revenue: React.FC = () => {
     if (!token) return;
     setLoading(true);
     try {
-      const url = `http://localhost:5001/api/v1/admin/revenue?period=${selectedPeriod}&businessId=${selectedBusiness}`;
+      const url = `https://verify.bia.com.ng/api/v1/admin/revenue?period=${selectedPeriod}&businessId=${selectedBusiness}`;
       const res = await fetch(url, {
         headers: { 'Authorization': `Bearer ${token}` }
       });

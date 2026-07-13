@@ -20,7 +20,7 @@ export const UpstreamHealth: React.FC = () => {
     if (!token) return;
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5001/api/v1/admin/health', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/admin/health', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {

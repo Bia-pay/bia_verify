@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { User, Mail, Lock, Phone, AlertCircle, CheckCircle2, ArrowRight, RefreshCw, Shield } from 'lucide-react';
 
-const API = 'http://localhost:5001/api/v1';
+const API = 'https://verify.bia.com.ng/api/v1';
 
 type Step = 'form' | 'otp' | 'done';
 

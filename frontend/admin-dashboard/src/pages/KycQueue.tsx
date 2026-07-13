@@ -39,7 +39,7 @@ export const KycQueue: React.FC = () => {
     if (!token) return;
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5001/api/v1/admin/kyc/queue', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/admin/kyc/queue', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -95,7 +95,7 @@ export const KycQueue: React.FC = () => {
     setActionLoading(true);
 
     try {
-      const res = await fetch('http://localhost:5001/api/v1/admin/kyc/review', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/admin/kyc/review', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

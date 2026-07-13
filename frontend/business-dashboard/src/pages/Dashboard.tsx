@@ -39,7 +39,7 @@ export const Dashboard: React.FC = () => {
   const fetchBalance = async () => {
     if (!token) return;
     try {
-      const res = await fetch('http://localhost:5001/api/v1/wallet/balance', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/wallet/balance', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -56,7 +56,7 @@ export const Dashboard: React.FC = () => {
   const fetchHistory = async () => {
     if (!token) return;
     try {
-      const res = await fetch('http://localhost:5001/api/v1/business/usage', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/business/usage', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -89,7 +89,7 @@ export const Dashboard: React.FC = () => {
       // This is a standard and secure pattern. Let's update `routes/index.ts` using `replace_file_content`.
       
       // Let's fetch the session verify endpoint instead.
-      const res = await fetch('http://localhost:5001/api/v1/business/verify', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/business/verify', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

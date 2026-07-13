@@ -4,7 +4,7 @@ import { BookOpen, Key, Terminal, Code, AlertTriangle } from 'lucide-react';
 export const ApiDocs: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'curl' | 'nodejs' | 'python'>('curl');
 
-  const curlCode = `curl -X POST http://localhost:5001/api/v1/verify \\
+  const curlCode = `curl -X POST https://verify.bia.com.ng/api/v1/verify \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{"nin": "12300000000"}'`;
@@ -13,7 +13,7 @@ export const ApiDocs: React.FC = () => {
 
 async function verifyNIN() {
   try {
-    const res = await axios.post('http://localhost:5001/api/v1/verify', 
+    const res = await axios.post('https://verify.bia.com.ng/api/v1/verify', 
       { nin: '12300000000' },
       {
         headers: {
@@ -32,7 +32,7 @@ verifyNIN();`;
 
   const pythonCode = `import requests
 
-url = "http://localhost:5001/api/v1/verify"
+url = "https://verify.bia.com.ng/api/v1/verify"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"

@@ -47,7 +47,7 @@ export const Transactions: React.FC = () => {
     if (!token) return;
     setWalletLoading(true);
     try {
-      const res = await fetch('http://localhost:5001/api/v1/wallet/transactions', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/wallet/transactions', {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {
@@ -65,7 +65,7 @@ export const Transactions: React.FC = () => {
     if (!token) return;
     setVerifyLoading(true);
     try {
-      const res = await fetch('http://localhost:5001/api/v1/business/usage', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/business/usage', {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {

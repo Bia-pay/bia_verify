@@ -26,7 +26,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const fetchProfile = async (currentToken: string) => {
     try {
-      const response = await fetch('http://localhost:5001/api/v1/auth/me', {
+      const response = await fetch('https://verify.bia.com.ng/api/v1/auth/me', {
         headers: {
           'Authorization': `Bearer ${currentToken}`
         }
@@ -54,7 +54,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [token]);
 
   const login = async (email: string, password: string) => {
-    const response = await fetch('http://localhost:5001/api/v1/auth/login', {
+    const response = await fetch('https://verify.bia.com.ng/api/v1/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
@@ -71,7 +71,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const register = async (fullName: string, email: string, phoneNumber: string, password: string) => {
-    const response = await fetch('http://localhost:5001/api/v1/auth/register', {
+    const response = await fetch('https://verify.bia.com.ng/api/v1/auth/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ fullName, email, phoneNumber, password })

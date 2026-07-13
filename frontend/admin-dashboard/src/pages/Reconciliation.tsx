@@ -23,7 +23,7 @@ export const Reconciliation: React.FC = () => {
     if (!token) return;
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5001/api/v1/admin/reconciliation', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/admin/reconciliation', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {

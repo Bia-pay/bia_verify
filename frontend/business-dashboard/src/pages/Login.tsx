@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Mail, Lock, Phone, ArrowRight, AlertCircle, CheckCircle2, KeyRound, RefreshCw, Eye, EyeOff } from 'lucide-react';
 
-const API = 'http://localhost:5001/api/v1';
+const API = 'https://verify.bia.com.ng/api/v1';
 
 type Mode = 'login' | 'forgot' | 'reset';
 

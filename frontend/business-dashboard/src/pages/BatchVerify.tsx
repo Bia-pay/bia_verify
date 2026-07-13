@@ -37,7 +37,7 @@ export const BatchVerify: React.FC = () => {
   const fetchBalance = async () => {
     if (!token) return;
     try {
-      const res = await fetch('http://localhost:5001/api/v1/wallet/balance', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/wallet/balance', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -181,7 +181,7 @@ export const BatchVerify: React.FC = () => {
 
     try {
       // Use fetch to process SSE stream chunk-by-chunk
-      const response = await fetch('http://localhost:5001/api/v1/verify/batch', {
+      const response = await fetch('https://verify.bia.com.ng/api/v1/verify/batch', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

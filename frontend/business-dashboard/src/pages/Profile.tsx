@@ -7,7 +7,7 @@ import {
   ChevronRight, MessageSquare, ExternalLink
 } from 'lucide-react';
 
-const API = 'http://localhost:5001/api/v1';
+const API = 'https://verify.bia.com.ng/api/v1';
 
 type Section = 'main' | 'change-password' | 'delete-account';
 

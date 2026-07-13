@@ -30,7 +30,7 @@ export const KycSubmit: React.FC = () => {
   const fetchKycStatus = async () => {
     if (!token) return;
     try {
-      const res = await fetch('http://localhost:5001/api/v1/kyc/status', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/kyc/status', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -85,7 +85,7 @@ export const KycSubmit: React.FC = () => {
       formData.append('ndpcDocument', ndpcDoc);
       formData.append('companyPhoto', companyPhoto);
 
-      const res = await fetch('http://localhost:5001/api/v1/kyc/submit', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/kyc/submit', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`

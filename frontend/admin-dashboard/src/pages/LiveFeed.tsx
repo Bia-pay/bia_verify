@@ -22,7 +22,7 @@ export const LiveFeed: React.FC = () => {
   const fetchFeed = async () => {
     if (!token) return;
     try {
-      const res = await fetch('http://localhost:5001/api/v1/admin/live-feed', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/admin/live-feed', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {

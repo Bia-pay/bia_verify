@@ -120,7 +120,7 @@ export const BusinessManager: React.FC = () => {
     if (!token) return;
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5001/api/v1/admin/businesses', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/admin/businesses', {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.ok) {
@@ -150,7 +150,7 @@ export const BusinessManager: React.FC = () => {
     if (!window.confirm(`Are you sure you want to ${actionWord} ${biz.fullName}?`)) return;
 
     try {
-      const res = await fetch(`http://localhost:5001/api/v1/admin/businesses/${biz.id}/suspend`, {
+      const res = await fetch(`https://verify.bia.com.ng/api/v1/admin/businesses/${biz.id}/suspend`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({ suspend: targetStatus }),
@@ -172,7 +172,7 @@ export const BusinessManager: React.FC = () => {
     if (!adjustDesc.trim()) { setAdjustError('An audit note is required.'); return; }
     setAdjustLoading(true);
     try {
-      const res = await fetch(`http://localhost:5001/api/v1/admin/businesses/${selectedBiz.id}/wallet`, {
+      const res = await fetch(`https://verify.bia.com.ng/api/v1/admin/businesses/${selectedBiz.id}/wallet`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({ amount: amt, description: adjustDesc }),
@@ -201,7 +201,7 @@ export const BusinessManager: React.FC = () => {
     if (isNaN(bs) || bs < 0) { setPricingError('Enter a valid bulk surcharge.'); return; }
     setPricingLoading(true);
     try {
-      const res = await fetch(`http://localhost:5001/api/v1/admin/businesses/${selectedBiz.id}/pricing`, {
+      const res = await fetch(`https://verify.bia.com.ng/api/v1/admin/businesses/${selectedBiz.id}/pricing`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({ singleVerificationPrice: sp, bulkVerificationSurcharge: bs }),

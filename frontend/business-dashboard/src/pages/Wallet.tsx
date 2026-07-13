@@ -49,7 +49,7 @@ export const Wallet: React.FC = () => {
   const fetchBalance = async () => {
     if (!token) return;
     try {
-      const res = await fetch('http://localhost:5001/api/v1/wallet/balance', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/wallet/balance', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -69,7 +69,7 @@ export const Wallet: React.FC = () => {
   const fetchKeyStatus = async () => {
     if (!token) return;
     try {
-      const res = await fetch('http://localhost:5001/api/v1/business/api-key', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/business/api-key', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -86,7 +86,7 @@ export const Wallet: React.FC = () => {
   const fetchTransactions = async () => {
     if (!token) return;
     try {
-      const res = await fetch('http://localhost:5001/api/v1/wallet/transactions', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/wallet/transactions', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -112,7 +112,7 @@ export const Wallet: React.FC = () => {
     setGenerating(true);
     setGenerateError('');
     try {
-      const res = await fetch('http://localhost:5001/api/v1/wallet/generate-virtual-account', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/wallet/generate-virtual-account', {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -139,7 +139,7 @@ export const Wallet: React.FC = () => {
     setNewApiKey('');
 
     try {
-      const res = await fetch('http://localhost:5001/api/v1/business/api-key/rotate', {
+      const res = await fetch('https://verify.bia.com.ng/api/v1/business/api-key/rotate', {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}` }
       });
